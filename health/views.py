@@ -12,3 +12,15 @@ def health_check(request):
     return JsonResponse(response_data)
 
 # Create your views here.
+
+# exchange/views.py
+from django.http import JsonResponse
+from .models import SyncStatus
+
+def health_check(request):
+    sync_status = SyncStatus.objects.first()
+    return JsonResponse({
+        "service": "online",
+        "last_sync": sync_status.last_sync.isoformat() if sync_status else None,
+    })
+
