@@ -1,0 +1,7 @@
+# Ignorar pastas de cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar arquivos __init__.py gerados automaticamente
+__init__.py
